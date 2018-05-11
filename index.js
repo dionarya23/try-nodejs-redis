@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const methodOverride = require("method-override");
 const redis = require('redis');
 
-//membuat client redis
 let client = redis.createClient();
 client.on('connect', () => {
     console.log('Connected to Redis');
@@ -18,7 +17,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-//method Override
 app.use(methodOverride('_method'));
 
 //Ini Route untuk HOME
